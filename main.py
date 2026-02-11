@@ -1,21 +1,16 @@
-
 from glob import glob
-from video_grid import VideoGrid # create_video_grid
+from video_grid import VideoGrid
 
 if __name__ == "__main__":
     # Use glob to create a list of the desired input videos
     input_paths = \
-        glob("resources/*.mp4") 
-        # glob("outputs/out_*_pt_*2.mp4") 
-        # glob("outputs/out_*_onnx_*.mp4") + \
-        # ["outputs/out_yolo26n_pt_video2.mp4"]
+        glob("resources/*.mp4") + \
+        glob("resources/*.avi") 
     print("Input Paths =", input_paths)
-    # exit(0)
 
     num_videos = len(input_paths)
-    output_path = f"outputs/out_all_{num_videos}.avi"
+    output_path = f"outputs/video_grid_{num_videos}.avi"
 
-    # Create an instance of the class
+    # Create the video grid
     vg = VideoGrid (input_paths, output_path)
     vg.create_video_grid ()
-
