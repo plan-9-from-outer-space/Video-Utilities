@@ -1,13 +1,10 @@
 [project]
-name = "10-yolo26-yolo11-comparison"
+name = "video-grid"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
     "opencv-python",
-    "ultralytics",
-    "pyautogui",       # for screen resolution
-    "pyside6",
-    "deep-translator"  # Google translate
+    "pyautogui",
 ]
