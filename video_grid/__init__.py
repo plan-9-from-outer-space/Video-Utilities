@@ -1,2 +1,4 @@
+
 from .video_grid import VideoGrid
-__all__ = ['VideoGrid']
+from .video_grid_gui import VideoGridGUI
+__all__ = ['VideoGrid', 'VideoGridGUI']

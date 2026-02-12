@@ -9,6 +9,8 @@ import numpy as np
 class VideoGrid:
     """Create an N x N output video grid layout from any number of input videos."""
 
+    # var1 = 'junk'  # class variable shared by all instances
+
     def __init__ (self, input_paths, output_path):
         """Initialize the class instance."""
         self.input_paths = input_paths
@@ -26,9 +28,12 @@ class VideoGrid:
         ret, frame = cap.read()
         return frame if ret else None
 
-def create_video_grid (self):
+    def create_video_grid (self):
+        
         input_paths = self.input_paths
         output_path = self.output_path
+        print("in create_video_grid")
+        print("input_paths:", input_paths, "output_path:", output_path)
 
         # Open the input video streams
         caps = [cv2.VideoCapture (path) for path in input_paths]
@@ -41,7 +46,7 @@ def create_video_grid (self):
             this_fps = cap.get(cv2.CAP_PROP_FPS)
             this_arr = this_height / this_width # aspect ratio reversed
             print(f"  Video properties: width={this_width}, height={this_height}, arr={this_arr}, fps={this_fps}")
-            # Video properties: width=960, height=540, arr=0.5625, fps=25.0  # Examples
+            # Video properties: width=960, height=540, arr=0.5625, fps=25.0
             # Video properties: width=640, height=360, arr=0.5625, fps=50.0
 
         # Calculate the grid size based on the number of input videos
@@ -113,6 +118,7 @@ def create_video_grid (self):
             # Write the completed frame to the output video
             out.write(combined_frame)
         
+        print("Done")
         for cap in caps:
             cap.release()
         out.release()
